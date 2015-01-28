@@ -5,6 +5,10 @@ compiler:
 os:
   - linux
   - osx
+sudo: false
+before_install:
+  - sudo pip install cpp-coveralls
 script:
     - ./travis_test.sh $TRAVIS_OS_NAME
-sudo: false
+after_success:
+  - coveralls --exclude doc --gcov-options '\-lp'
