@@ -11,11 +11,11 @@ cat README >> README.md
 rm -rf lua-5.3.0
 rm lua-5.3.0.tar.gz
 if [ "$(uname)" == "Darwin" ]; then
-    make macosx test
+    make macosx test "MYCFLAGS=-fPIC"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    make linux test
+    make linux test  "MYCFLAGS=-fPIC"
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    make mingw test
+    make mingw test  "MYCFLAGS=-fPIC"
 else
     make generic test
 fi
