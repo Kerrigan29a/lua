@@ -1,0 +1,10 @@
+language: c
+compiler:
+    - gcc
+    - clang
+os:
+  - linux
+  - osx
+script:
+    - ./travis_test.sh $TRAVIS_OS_NAME
+sudo: false
