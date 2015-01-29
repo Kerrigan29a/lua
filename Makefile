@@ -112,8 +112,3 @@ pc:
 .PHONY: all $(PLATS) clean test install local none dummy echo pecho lecho
 
 # (end of Makefile)
-uneploy:
-	rm -rf doc
-	rm -rf src
-	rm README
-	rm Makefile
