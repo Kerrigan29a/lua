@@ -52,5 +52,5 @@ fi
 make clean
 
 # Clean
-rm -rf lua-5.3.0
-rm lua-5.3.0.tar.gz
+rm -rf $LUA_VERSION
+rm $LUA_VERSION.tar.gz
