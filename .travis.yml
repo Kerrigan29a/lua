@@ -7,9 +7,22 @@ os:
   - osx
 before_install:
   - sudo pip install cpp-coveralls
-script:
-    - ./undeploy.sh
-    - ./deploy.sh
-    - ./travis_test.sh $TRAVIS_OS_NAME
+script: ./travis_test.sh $TRAVIS_OS_NAME
 after_success:
   - coveralls --exclude doc --gcov-options '\-lp'
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created via the
+   # "travis encrypt" command using the project repo's public key
+   - secure: "Wg1Lcc+Taib1a43iqjGQL8BGWcY4z3NEaHvIlCXE21DuZkoTTZxqT+2A/z6IS4n5ggfVZpUmlTa++YMbhu/sCN/Fvd3mvziUr4yHN4YIC8Np2tynwCunbY5DgU9jXpVCb+/y2JPiJ1s0cP9fHqxXAKi5QbVzSERmAujpjOH7vko="
+
+addons:
+  coverity_scan:
+    project:
+      name: "Kerrigan29a/lua"
+      description: "Build submitted via Travis CI"
+    notification_email: kerrigan29a@gmail.com
+    build_command_prepend: ""
+    build_command: ./travis_test.sh $TRAVIS_OS_NAME
+    branch_pattern: coverity_scan
