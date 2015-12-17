@@ -1,3 +1,9 @@
+
+install:
+  - "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
+
 build_script:
   - nmake -f Makefile.win
+
+test_script:
   - nmake -f Makefile.win test
