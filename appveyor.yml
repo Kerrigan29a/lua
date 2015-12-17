@@ -1,0 +1,3 @@
+build_script:
+  - nmake -f Makefile.win
+  - nmake -f Makefile.win test
