@@ -6,4 +6,6 @@ all:
 clean:
   cd src
   nmake -f Makefile.win clean
-
+  
+test:
+  src\lua -v
