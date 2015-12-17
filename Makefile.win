@@ -1,0 +1,9 @@
+
+all:
+  cd src
+  nmake -f Makefile.win
+
+clean:
+  cd src
+  nmake -f Makefile.win clean
+
